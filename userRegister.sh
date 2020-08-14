@@ -35,3 +35,15 @@ then
 else
 	echo "Invalid mobile number"
 fi
+
+read -p "Enter password: " pass
+
+#[[:graph:]] automatically selects all possible characters/digits/letters etc excepts space
+passPattern="^[[:graph:]]{8,}$"
+
+if [[ $pass =~ $passPattern ]]
+then
+	echo "Valid password"
+else
+	echo "Invalid password"
+fi
