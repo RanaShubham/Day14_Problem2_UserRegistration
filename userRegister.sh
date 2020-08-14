@@ -1,10 +1,12 @@
 #!/bin/bash -x
 
+echo ""
 echo "Welcome to user verification program"
+echo ""
 
-#read -p "Enter a valid first name: " FirstName
+read -p "Enter a valid first name: " FirstName
 
-#read -p "Enter a valid last name: " LastName
+read -p "Enter a valid last name: " LastName
 
 NamePattern="^[[:upper:]]{1}[[:lower:]]{2,}$"
 
@@ -14,10 +16,11 @@ then
 else
 	echo "Invalid name"
 fi
+echo ""
 
-#read -p "Enter a valid email ID: " email
+read -p "Enter a valid email ID: " email
 
-ePattern="^[[:lower:]]{1,}([.][[:lower:]]{1,}){0,}@[[:lower:]]{2,}[.][[:lower:]]{2,4}([.][[:lower:]]{2,}){0,1}$"
+ePattern="^[[:lower:]]{1,}([._+-][0-9a-z]{1,})*[0-9]{0,}@([0-9]|[[:lower:]]){1,}[.][[:lower:]]{2,4}([.][[:lower:]]{2,4}){0,1}$"
 
 if [[ $email =~ $ePattern ]]
 then
@@ -25,8 +28,9 @@ then
 else
 	echo "Invaid email"
 fi
+echo ""
 
-#read -p "Enter mobile number: " MobileNumber
+read -p "Enter mobile number: " MobileNumber
 
 mPattern="^[91]{0,}[7-9]{1}[0-9]{9}$"
 
@@ -36,6 +40,7 @@ then
 else
 	echo "Invalid mobile number"
 fi
+echo ""
 
 read -p "Enter password: " pass
 
@@ -73,3 +78,4 @@ then
 else
 	echo "Invalid password"
 fi
+echo ""
