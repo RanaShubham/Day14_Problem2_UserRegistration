@@ -2,19 +2,20 @@
 
 echo "Welcome to user verification program"
 
-read -p "Enter a valid first name: " FirstName
-read -p "Enter a valid last name: " LastName
+#read -p "Enter a valid first name: " FirstName
+
+#read -p "Enter a valid last name: " LastName
 
 NamePattern="^[[:upper:]]{1}[[:lower:]]{2,}$"
 
-if [[ $FirstName =~ $NamePattern || $LastName =~ $NamePattern ]]
+if [[ $FirstName =~ $NamePattern && $LastName =~ $NamePattern ]]
 then
 	echo "Valid name"
 else
 	echo "Invalid name"
 fi
 
-read -p "Enter a valid email ID: " email
+#read -p "Enter a valid email ID: " email
 
 ePattern="^[[:lower:]]{1,}([.][[:lower:]]{1,}){0,}@[[:lower:]]{2,}[.][[:lower:]]{2,4}([.][[:lower:]]{2,}){0,1}$"
 
@@ -25,7 +26,7 @@ else
 	echo "Invaid email"
 fi
 
-read -p "Enter mobile number: " MobileNumber
+#read -p "Enter mobile number: " MobileNumber
 
 mPattern="^[91]{0,}[7-9]{1}[0-9]{9}$"
 
@@ -38,10 +39,7 @@ fi
 
 read -p "Enter password: " pass
 
-#[[:graph:]] automatically selects all possible characters/digits/letters etc excepts space
-passPattern="^[[:graph:]]{8,}$"
-
-if [[ $pass =~ $passPattern ]]
+if [[ ${#pass} -ge 8 && $pass = *[[:upper:]]* ]]
 then
 	echo "Valid password"
 else
