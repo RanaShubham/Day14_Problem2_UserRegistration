@@ -13,15 +13,3 @@ then
 else
 	echo "Invalid name"
 fi
-
-
-read -p "Enter a valid email ID: " email
-
-ePattern="^[[:lower:]]{1,}([.][[:lower:]]{1,}){0,}@[[:lower:]]{2,}[.][[:lower:]]{2,4}([.][[:lower:]]{2,}){0,1}$"
-
-if [[ $email =~ $ePattern ]]
-then
-	echo "Valid email"
-else
-	echo "Invaid email"
-fi
