@@ -39,7 +39,7 @@ fi
 
 read -p "Enter password: " pass
 
-if [[ ${#pass} -ge 8 && $pass = *[[:upper:]]* ]]
+if [[ ${#pass} -ge 8 && $pass = *[[:upper:]]* && $pass = *[[:digit:]]* ]]
 then
 	echo "Valid password"
 else
