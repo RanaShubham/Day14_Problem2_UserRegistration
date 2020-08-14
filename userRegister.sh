@@ -3,12 +3,25 @@
 echo "Welcome to user verification program"
 
 read -p "Enter a valid first name: " FirstName
+read -p "Enter a valid last name: " LastName
 
-FnPattern="^[[:upper:]]{1}[[:lower:]]{2,}$"
+NamePattern="^[[:upper:]]{1}[[:lower:]]{2,}$"
 
-if [[ $FirstName =~ $FnPattern ]]
+if [[ $FirstName =~ $NamePattern || $LastName =~ $NamePattern ]]
 then
 	echo "Valid name"
 else
 	echo "Invalid name"
+fi
+
+
+read -p "Enter a valid email ID: " email
+
+ePattern="^[[:lower:]]{1,}([.][[:lower:]]{1,}){0,}@[[:lower:]]{2,}[.][[:lower:]]{2,4}([.][[:lower:]]{2,}){0,1}$"
+
+if [[ $email =~ $ePattern ]]
+then
+	echo "Valid email"
+else
+	echo "Invaid email"
 fi
