@@ -39,9 +39,37 @@ fi
 
 read -p "Enter password: " pass
 
+specialCharCount=0
+
 if [[ ${#pass} -ge 8 && $pass = *[[:upper:]]* && $pass = *[[:digit:]]* ]]
 then
-	echo "Valid password"
+
+	for (( i=0; i<${#pass}; i++ ))
+	do
+
+        x="${pass:$i:1}"
+
+        if [[ ! $x =~ [[:alnum:]] ]]
+        then
+		((specialCharCount++))
+        fi
+	done
+
+
+
+	if [[ $specialCharCount -eq 1 ]]
+        then
+                echo "valid password"
+
+        elif [[ $specialCharCount -eq 0 ]]
+        then
+                echo "Invalid password. Add a special character in password"
+
+        elif [[ $specialCharCount -ge 2 || $specialCharCount -eq 2 ]]
+        then
+                echo "Invalid password. Dont add more than one special character"
+        fi
+
 else
 	echo "Invalid password"
 fi
